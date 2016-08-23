@@ -12,8 +12,13 @@ init{
 startup{
 	settings.Add("settings", true, "Settings:");
 	settings.Add("autoSplit", true, "Auto-Split?", "settings");
-	settings.Add("categories", true, "Categories:");
+	
+	settings.Add("categories", true, "Categories: (Only Select One Please!)");
 	settings.Add("anyPercent", true, "Any%?", "categories");
+	settings.Add("1tablet", false, "1 Tablet?", "categories");
+	settings.Add("2tablet", false, "2 Tablets?", "categories");
+	settings.Add("3tablet", false, "3 Tablets?", "categories");
+	
 }
 
 split{
@@ -27,6 +32,27 @@ split{
 		
 		if (old.blueGuy + 1 == current.blueGuy){
 			return true;
+		}
+		
+		if (settings["1tablet"]){
+			if (old.roomID == 2 && current.roomID == 5){
+				System.Threading.Thread.Sleep(10);
+				return (current.runeCount == 1);
+			}
+		}
+		
+		if (settings["2tablet"]){
+			if (old.roomID == 2 && current.roomID == 5){
+				System.Threading.Thread.Sleep(10);
+				return (current.runeCount == 2);
+			}
+		}
+		
+		if (settings["3tablet"]){
+			if (old.roomID == 2 && current.roomID == 5){
+				System.Threading.Thread.Sleep(10);
+				return (current.runeCount == 3);
+			}
 		}
 	}
 	
