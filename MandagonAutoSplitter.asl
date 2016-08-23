@@ -33,6 +33,10 @@ split{
 	return false;
 }
 
+reset{
+	return (old.levelID - 1 == current.levelID);
+}
+
 isLoading{
 	return (current.loading != 0);
 }
