@@ -34,7 +34,7 @@ split{
 }
 
 reset{
-	return (old.roomID - 1 == current.roomID);
+	return (old.roomID - 1 == current.roomID && current.roomID == 2);
 }
 
 isLoading{
