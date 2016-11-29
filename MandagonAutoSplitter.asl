@@ -1,8 +1,7 @@
 state("Mandagon"){
-	int runesCollected : "mono.dll", 0x002635C0, 0x98, 0x370, 0x38;
-	int loading : "Mandagon.exe", 0x12A5B20;
-	int roomID : "Mandagon.exe", 0x0125B5D8, 0x158, 0x10, 0x7e0, 0x4d0, 0x0;
-	int blueGuy : "Mandagon.exe", 0x012A80A0, 0x3e0, 0x48, 0x8, 0x4b0, 0x138;
+	int runesCollected : "Mandagon.exe", 0x01347E40, 0x448, 0x10, 0x98, 0x380, 0x38;
+	int roomID : "Mandagon.exe", 0x01296C50, 0x3C0, 0x548, 0x0, 0x770, 0x7D0;
+	int loading : "Mandagon.exe", 0x1343E70;
 }
 
 init{
@@ -28,10 +27,6 @@ split{
 				current.runeCount = current.runesCollected;
 				return true;
 			}
-		}
-		
-		if (old.blueGuy + 1 == current.blueGuy){
-			return true;
 		}
 		
 		if (settings["1tablet"]){
@@ -66,6 +61,7 @@ reset{
 isLoading{
 	return (current.loading != 0);
 }
+
 
 start{
 	if (timer.CurrentPhase == TimerPhase.NotRunning){
